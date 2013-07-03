@@ -26,14 +26,13 @@ RapGenius.Views.SongShow = Backbone.View.extend({
 
   checkSelection: function(e){
     var that = this;
-    var selection = window.getSelection();
-    that.range = selection.getRangeAt();
-    var start = that.range.startOffset;
-    var end = that.range.endOffset;
+    that.selection = window.getSelection();
+    var range = that.selection.getRangeAt();
+    var start = range.startOffset;
+    var end = range.endOffset;
     var x_coord = e.pageX;
     var y_coord = e.pageY;
     var annotateButton = "";
-
     console.log(start, end)
 
     if (!(start === end)){
@@ -54,14 +53,25 @@ RapGenius.Views.SongShow = Backbone.View.extend({
   },
 
   annotate: function(e){
-    var lyrics = $("#lyrics").html();
-    var start = $(e.currentTarget).data("start");
-    var end = $(e.currentTarget).data("end");
-    var fragment = lyrics.slice(start, end);
-    var link = "<a href=''>" + fragment + "</a>";
-    lyrics = lyrics.slice(0,start) + link + lyrics.slice(end, lyrics.length - 1)
+    // first attempt at inserting links (buggy...)
+    // var lyrics = $("#lyrics").html();
+    // var start = $(e.currentTarget).data("start");
+    // var end = $(e.currentTarget).data("end");
+    // var fragment = lyrics.slice(start, end);
+    // var link = "<a href=''>" + fragment + "</a>";
+    // lyrics = lyrics.slice(0,start) + link + lyrics.slice(end, lyrics.length - 1)
 
-    $("#lyrics").html(lyrics);
+    // $("#lyrics").html(lyrics);
+
+    var that = this;
+    var range = that.selection.getRangeAt();
+    var docFrag = range.extractContents();
+    var newNode = document.createElement("a");
+    newNode.appendChild(docFrag);
+    $(newNode).attr('href', "#");
+    range.insertNode(newNode);
+    console.log(newNode)
+
 
   },
 
