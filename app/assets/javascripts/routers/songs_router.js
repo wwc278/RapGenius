@@ -27,6 +27,7 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
 
     var songView = new RapGenius.Views.SongShow({
       model: selectedSong,
+      song_id: id,
     })
 
     that.$rootEl.html(songView.render().$el);

@@ -154,6 +154,16 @@ Tunechi
 [Hook]
 "
 
+simple_song_lyrics = "Well this is just a simple song
+To say what you done
+I told you about all those fears
+And away they did run
+You sure must be strong
+And you feel like an ocean
+Being warmed by the sun..."
+
+User.create
+
 Song.create(:lyrics => rich_as_fuck_lyrics, 
   title: 'Rich As Fuck', 
   artist: 'Lil Wayne')
@@ -161,3 +171,7 @@ Song.create(:lyrics => rich_as_fuck_lyrics,
 Song.create(:lyrics => no_new_friends_lyrics, 
   title: 'No New Friends',
    artist: 'Drake')
+
+Song.create(:lyrics => simple_song_lyrics, 
+  title: 'Simple Song',
+   artist: 'The Shins')
