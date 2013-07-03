@@ -2,8 +2,13 @@ RapGenius.Views.SongShow = Backbone.View.extend({
 
   // initialize: function(){
   //   var that = this;
-  //   that.listenTo(that.model, 'all', that.render);
+
+  //   that.listenTo($lyrics, 'all', that.render);
   // },
+
+  events: {
+    "click #lyrics":      "annotate",
+  },
 
   template: JST['songs/show'],
 
@@ -15,6 +20,21 @@ RapGenius.Views.SongShow = Backbone.View.extend({
 
     that.$el.html(renderedContent);
     return that;
+  },
+
+  annotate: function(){
+
+    var selection = window.getSelection();
+    var range = selection.getRangeAt();
+    var start = selection.getRangeAt().startOffset;
+    var contents = range.cloneContents();
+
+    var link = "<a>" + contents.textContent + "</a>";
+    $('contents').html(function(index, oldhtml){
+      
+    })
+    console.log(range, start, link)
+
   }
 
 });
