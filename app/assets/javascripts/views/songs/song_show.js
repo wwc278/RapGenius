@@ -1,14 +1,14 @@
 RapGenius.Views.SongShow = Backbone.View.extend({
 
-  // initialize: function(){
-  //   var that = this;
-
-  //   that.listenTo($lyrics, 'all', that.render);
-  // },
+  initialize: function(options){
+    this.model = options.model;
+    this.song_id = options.song_id;
+    this.$sideBar = options.$sideBar;
+  },
 
   events: {
     "click #lyrics":      "checkSelection",
-    "click .annotate":    "annotate",
+    "click .annotate":    "showNewNoteSidebar",
   },
 
   template: JST['songs/show'],
@@ -52,22 +52,26 @@ RapGenius.Views.SongShow = Backbone.View.extend({
 
   },
 
-  annotate: function(e){
-    // first attempt at inserting links (buggy...)
-    // var lyrics = $("#lyrics").html();
-    // var start = $(e.currentTarget).data("start");
-    // var end = $(e.currentTarget).data("end");
-    // var fragment = lyrics.slice(start, end);
-    // var link = "<a href=''>" + fragment + "</a>";
-    // lyrics = lyrics.slice(0,start) + link + lyrics.slice(end, lyrics.length - 1)
+  showNewNoteSidebar: function(){
+    $("button.annotate").remove();
 
-    // $("#lyrics").html(lyrics);
+    var that = this;
+    var newNoteView = new RapGenius.Views.NoteNew({
+      song_id: that.model.id,
+      selection: that.selection,
+    });
 
+    that.$sideBar.html(newNoteView.render().$el);
+  },
+
+  annotate: function(){
     var that = this;
     var range = that.selection.getRangeAt();
     var docFrag = range.extractContents();
     var newNode = document.createElement("a");
     newNode.appendChild(docFrag);
+
+
     $(newNode).attr('href', "#");
     range.insertNode(newNode);
     console.log(newNode)

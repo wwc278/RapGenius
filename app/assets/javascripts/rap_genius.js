@@ -5,10 +5,12 @@ window.RapGenius = {
   Routers: {},
   initialize: function() {
     var $rootEl = $('#content');
+    var $sideBar = $('#sideBar');
     RapGenius.songs = new RapGenius.Collections.Songs();
 
     new RapGenius.Routers.Songs({
       "$rootEl": $rootEl,
+      "$sideBar": $sideBar,
     });
 
     Backbone.history.start();

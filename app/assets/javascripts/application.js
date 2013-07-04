@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require rap_genius
+//= require jquery.serializeJSON.min
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
