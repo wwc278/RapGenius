@@ -1,5 +1,6 @@
 RapGenius.Collections.Notes = Backbone.Collection.extend({
 
-  model: RapGenius.Models.Note, 
+  model: RapGenius.Models.Note,
+  url: "/notes", 
 
 });

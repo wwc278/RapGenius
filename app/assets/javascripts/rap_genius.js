@@ -7,6 +7,9 @@ window.RapGenius = {
     var $rootEl = $('#content');
     var $sideBar = $('#sideBar');
     RapGenius.songs = new RapGenius.Collections.Songs();
+    RapGenius.notes = new RapGenius.Collections.Notes();
+    RapGenius.songs.fetch();
+    RapGenius.notes.fetch();
 
     new RapGenius.Routers.Songs({
       "$rootEl": $rootEl,

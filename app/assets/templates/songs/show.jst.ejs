@@ -1,6 +1,6 @@
 <h1><%= song.escape("title") %></h1>
 <h3>by <%= song.escape("artist") %></h3>
 
-<pre id='lyrics' data-id=<%= song_id %>><%= song.escape("lyrics") %></pre>
+<pre id='lyrics' data-id=<%= song_id %>><%= song.get("lyrics") %></pre>
 
 <a href="#">Index</a>

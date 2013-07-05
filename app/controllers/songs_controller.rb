@@ -10,4 +10,23 @@ class SongsController < ApplicationController
       f.json {render :json => @songs}
     end
   end
+
+  def create
+    @song = Song.new(params[:song])
+    if @song.save
+      render :json => @song
+    else
+      render :json => @song, :status => 422
+    end
+  end
+
+  def update
+    @song = Song.find(params[:id])
+    if @song.update_attributes(params[:song])
+      render :json => @song
+    else
+      render :json => @song, :status => 422
+    end
+
+  end
 end
