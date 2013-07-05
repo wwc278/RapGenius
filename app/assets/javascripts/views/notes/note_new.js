@@ -58,7 +58,11 @@ RapGenius.Views.NoteNew = Backbone.View.extend({
   // saves the lyrics with newly created link to song in database
   save: function(song_id){
     var song = RapGenius.songs.get(song_id);
-    song.save({lyrics: $("#lyrics").html()});
+    song.save({song: {lyrics: $("#lyrics").html()} },
+      {error: function(){
+        console.log("ajax error on annotation save")
+      }
+    });
   },
 
 });
