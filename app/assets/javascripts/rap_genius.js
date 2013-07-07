@@ -4,6 +4,7 @@ window.RapGenius = {
   Views: {},
   Routers: {},
   initialize: function() {
+    var $navBar = $(".nav");
     var $rootEl = $('#content');
     var $sideBar = $('#sideBar');
     RapGenius.songs = new RapGenius.Collections.Songs();
@@ -14,6 +15,7 @@ window.RapGenius = {
     new RapGenius.Routers.Songs({
       "$rootEl": $rootEl,
       "$sideBar": $sideBar,
+      "$navBar" : $navBar,
     });
 
     Backbone.history.start();

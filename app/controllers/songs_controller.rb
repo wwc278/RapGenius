@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :index
   respond_to :json
   respond_to :html, :only => :index
 

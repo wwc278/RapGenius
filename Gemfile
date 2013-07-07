@@ -13,6 +13,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'letter_opener'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
 end
 
 

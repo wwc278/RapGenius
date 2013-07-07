@@ -36,4 +36,12 @@ RapGenius::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.delivery_method = :letter_opener
+
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+
+  config.middleware.insert_before(
+    Rack::Lock, Rack::LiveReload,
+    :port => 3000,
+    :host => 'localhost'
+    )
 end
