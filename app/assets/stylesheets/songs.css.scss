@@ -25,13 +25,21 @@
   border-right: 1px solid rgba(0, 0, 0, .1);
 }
 
-#content {
+.form-search {
   float: left;
-  width: 40%;
+}
+
+.auth {
+  float: right;
+}
+
+#content {
+  float: right;
+  width: 55%;
 }
 
 #sideBar {
   float: left;
-  width: 40%;
-  border-left:  2px solid black;
+  width: 360px;
+  position: fixed;
 }

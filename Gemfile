@@ -16,6 +16,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'rack-livereload'
+  gem 'seed_dump'
 end
 
 
