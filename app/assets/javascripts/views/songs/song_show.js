@@ -37,18 +37,24 @@ RapGenius.Views.SongShow = Backbone.View.extend({
     var x_coord = e.pageX;
     var y_coord = e.pageY;
     var annotateButton = "";
-    console.log(start, end)
 
-    if (!(start === end)){
+    if ((start !== end) &&
+      !that.checkForAnchor(that.range) &&
+      selection.type !== "Caret") {
+
       annotateButton = that.annotateButtonTemplate({
         x_coord: x_coord,
         y_coord: y_coord,
       })
-    }
+  }
     $("button.annotate").remove();
     that.$el.append(annotateButton);
+  },
 
-
+  checkForAnchor: function(range){
+    var docFrag = range.cloneContents();
+    var children = docFrag.childNodes;
+    return _(children).some(function(child){return child.tagName === "A"})
   },
 
   showNewNoteSidebar: function(){
@@ -64,8 +70,6 @@ RapGenius.Views.SongShow = Backbone.View.extend({
 
     that.$sideBar.html(newNoteView.render().$el);
   },
-
-
 
 });
 

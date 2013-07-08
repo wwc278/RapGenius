@@ -16,7 +16,6 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
   newSongTemplate: JST['songs/new'],
 
   render: function(){
-    console.log("called render")
 
     var that = this;
     var renderedContent = that.template({
