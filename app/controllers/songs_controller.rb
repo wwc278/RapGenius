@@ -20,6 +20,11 @@ class SongsController < ApplicationController
     end
   end
 
+  def show
+    @song = Song.find(params[:id])
+    render :json => @song
+  end
+
   def update
     @song = Song.find(params[:id])
     if @song.update_attributes(params[:song])

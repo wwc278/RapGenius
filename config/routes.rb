@@ -1,7 +1,8 @@
 RapGenius::Application.routes.draw do
   root :to => "songs#index"
-  resources :songs
-  resources :notes
+  resources :songs do 
+    resources :notes
+  end
   devise_for :users
 
   # The priority is based upon order of creation:

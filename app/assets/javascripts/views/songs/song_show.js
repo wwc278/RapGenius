@@ -3,8 +3,8 @@ RapGenius.Views.SongShow = Backbone.View.extend({
   initialize: function(options){
     var that = this;
     that.model = options.model;
-    // that.noteCollection = options.noteCollection;
-    that.song_id = options.song_id;
+
+    that.model.notes.fetch();
     that.$sideBar = options.$sideBar;
 
   },
@@ -22,7 +22,6 @@ RapGenius.Views.SongShow = Backbone.View.extend({
     var that = this;
     var renderedContent = that.template({
       song: that.model,
-      song_id: that.song_id,
     })
     that.$el.html(renderedContent);
     return that;
@@ -31,6 +30,10 @@ RapGenius.Views.SongShow = Backbone.View.extend({
   checkSelection: function(e){
     var that = this;
     var selection = window.getSelection();
+    if (selection.type === "None"){
+      return
+    }
+
     that.range = selection.getRangeAt();
     var start = that.range.startOffset;
     var end = that.range.endOffset;
@@ -63,7 +66,7 @@ RapGenius.Views.SongShow = Backbone.View.extend({
     var that = this;
     var newNoteView = new RapGenius.Views.NoteNew({
       model: new RapGenius.Models.Note(),
-      collection: RapGenius.notes,
+      collection: that.model.notes,
       song_id: that.model.id,
       range: that.range,
     });

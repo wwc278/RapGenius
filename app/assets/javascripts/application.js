@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require backbone-relational
 //= require rap_genius
 //= require jquery.serializeJSON.min
 //= require_tree ../templates
