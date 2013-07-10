@@ -3,5 +3,10 @@ Lyric snippet:
   <%= note.escape("snippet") %>
 </pre>
 <br>
+
 Genius Explanation:
 <p><%= note.escape("annotated_text") %></p>
+<br>
+
+Author:
+<p><%= scholars.get(note.escape("scholar_id")).escape("email") %></p>

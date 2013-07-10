@@ -5,4 +5,8 @@ class Note < ActiveRecord::Base
   belongs_to :scholar, 
               :class_name => :User,
               :foreign_key => :scholar_id
+
+  def as_json(options={})
+    super(options.merge(:include => :scholar))
+  end
 end

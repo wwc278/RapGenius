@@ -5,6 +5,7 @@ RapGenius.Views.NoteShow = Backbone.View.extend({
   render: function(){
     var renderedContent = this.template({
       note: this.model,
+      scholars: this.collection,
     })
     this.$el = renderedContent;
     return this;

@@ -20,7 +20,10 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
 
   index: function(){
     var that = this;
-
+    if (RapGenius.songs.length === 0){
+      console.log("index fetch")
+      RapGenius.songs.fetch();
+    }
     var indexView = new RapGenius.Views.SongsIndex({
       collection: RapGenius.songs,
     });
@@ -57,9 +60,9 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
   _getSong: function(id, callback){
     var song = RapGenius.songs.get(id);
 
-    // only fetch if song does not exist on client or 
-    // if the associated notes or scholars are missing
-    if (!song || song.notes.length === 0 || song.scholars.length === 0){
+    // If song is not found, create a new song with the id, fetch it
+    // from the database, then add it.
+    if (!song){
       if (!song){
         song = new RapGenius.Models.Song({id: id});
         song.collection = RapGenius.songs;
@@ -71,17 +74,28 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
           callback(song);
         }
       })
+    // If song is found but notes and scholars are missing, fetch those items
+    // from the database, then update the model.
+    } else if (song.notes.length === 0 || song.scholars.length === 0){
+      song.fetch({
+        success: function(){
+          console.log("ajax success song fetch 2")
+          callback(song);
+        }
+      })
     } else {
       callback(song);
     }
   },
 
   showNote: function(song_id, id){
+    console.log("router show note")
     var that = this;
     that._getSong(song_id, function(selectedSong){
       that._getNote(selectedSong, id, function(){
         var noteShowView = new RapGenius.Views.NoteShow({
           model: selectedSong.notes.get(id),
+          collection: selectedSong.scholars,
         });
         that.$sideBar.html(noteShowView.render().$el);
       })
@@ -106,7 +120,7 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
   },
 
   showLyricAndNote: function(song_id, id){
-    console.log("lyric and note")
+    console.log("router lyric and note")
     var that = this;
     that.showSong(song_id, that.showNote.bind(that), id);
     that.$navBar.html(JST['navbar']({active: "songs_notes"}));
