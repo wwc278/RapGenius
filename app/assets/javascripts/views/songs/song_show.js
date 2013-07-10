@@ -73,6 +73,7 @@ RapGenius.Views.SongShow = Backbone.View.extend({
     });
 
     that.$sideBar.html(newNoteView.render().$el);
+    Backbone.history.navigate("songs/" + that.model.id + "/new_note")
   },
 
 });

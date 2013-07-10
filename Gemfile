@@ -17,6 +17,7 @@ group :development do
   gem 'guard-livereload'
   gem 'rack-livereload'
   gem 'seed_dump'
+  gem 'faker'
 end
 
 

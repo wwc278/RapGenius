@@ -14,6 +14,7 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     "songs_notes"   : "index",
     "songs/:song_id/notes/:id"     : "showLyricAndNote",
     "songs/:id"     : "showSong",
+    "songs/:id/new_note" : "showSong",
     "notes/:id"                    : "showNote",
   },
 
@@ -30,7 +31,6 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
   },
 
   showSong: function(song_id){
-    console.log("showing song")
     var that = this;
     that._getSong(song_id, function(song){
       var songView = new RapGenius.Views.SongShow({
@@ -88,6 +88,7 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
   },
 
   showLyricAndNote: function(song_id, id){
+    console.log(1)
     var that = this;
     that.showSong(song_id);
     that.showNote(song_id, id);

@@ -6,6 +6,6 @@ class Song < ActiveRecord::Base
   has_many :scholars, :through => :notes, :source => :scholar
 
   def as_json(options = {})
-    super(options.merge(:include => :notes))
+    super(options.merge(:include => [:notes, :scholars]))
   end
 end

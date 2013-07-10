@@ -36,7 +36,7 @@ RapGenius.Views.NoteNew = Backbone.View.extend({
     that.collection.create(that.model, {
       success: function(){
         that.annotate(that.song_id, that.model.id);
-        that.saveNote(that.song_id, that.model.id);
+        that.saveLyrics(that.song_id, that.model.id);
       }
     })
   },
@@ -54,7 +54,7 @@ RapGenius.Views.NoteNew = Backbone.View.extend({
   },
 
   // saves the lyrics with newly created link to song in database
-  saveNote: function(song_id, note_id){
+  saveLyrics: function(song_id, note_id){
     var song = RapGenius.songs.get(song_id);
     song.save({song: {lyrics: $("#lyrics").html()} }, {
       success: function(){
