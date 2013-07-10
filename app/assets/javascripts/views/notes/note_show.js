@@ -3,13 +3,12 @@ RapGenius.Views.NoteShow = Backbone.View.extend({
   template: JST['notes/show'],
 
   render: function(){
-    var that = this;
-    var renderedContent = that.template({
-      note: that.model,
+    console.log("called noteshow render")
+    var renderedContent = this.template({
+      note: this.model,
     })
-
-    that.$el = renderedContent;
-    return that;
+    this.$el = renderedContent;
+    return this;
   },
 
 })

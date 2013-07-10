@@ -3,6 +3,7 @@ RapGenius::Application.routes.draw do
   resources :songs do 
     resources :notes
   end
+  resources :albums
   devise_for :users
 
   # The priority is based upon order of creation:

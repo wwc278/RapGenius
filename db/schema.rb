@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704233831) do
+ActiveRecord::Schema.define(:version => 20130709232216) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "artist",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "notes", :force => true do |t|
     t.text     "annotated_text", :null => false
@@ -19,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130704233831) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "snippet",        :null => false
+    t.integer  "scholar_id",     :null => false
   end
 
   create_table "songs", :force => true do |t|
@@ -27,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130704233831) do
     t.string   "artist",     :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "album_id"
   end
 
   create_table "users", :force => true do |t|

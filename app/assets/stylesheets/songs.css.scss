@@ -25,12 +25,18 @@
   border-right: 1px solid rgba(0, 0, 0, .1);
 }
 
-.form-search {
+.muted.title {
   float: left;
+}
+
+.form-search {
+  float: right;
+  padding:10px;
 }
 
 .auth {
   float: right;
+  padding: 10px;
 }
 
 #content {

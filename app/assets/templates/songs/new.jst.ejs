@@ -1,6 +1,9 @@
 <form class='new_song'>
   <label for='song_title'></label>
-  <input id='song_title' name='song[title]' type='text' placeholder='Title'>
+  <input id='song_title'
+          name='song[title]' 
+          type='text' 
+          placeholder='Title'>
   <br>
 
   <label for='song_artist'></label>
@@ -8,7 +11,11 @@
   <br>
 
   <label for='song_lyrics'></label>
-  <textarea id='song_lyrics' name='song[lyrics]' placeholder='Lyrics'></textarea>
+  <textarea id='song_lyrics' 
+            style='width: 450px;'
+            name='song[lyrics]'
+            rows='100' 
+            placeholder='Lyrics'></textarea>
 
   <input type='submit' class='new_song'>
   <button class='cancel btn'>Cancel</button>

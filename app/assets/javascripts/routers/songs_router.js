@@ -29,7 +29,8 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     that.$sideBar.html("");
   },
 
-  showSong: function(song_id, callback, note_id){
+  showSong: function(song_id){
+    console.log("showing song")
     var that = this;
     that._getSong(song_id, function(song){
       var songView = new RapGenius.Views.SongShow({
@@ -38,9 +39,6 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
       })
       that.$rootEl.html(songView.render().$el);
 
-      if (callback){ //callback to show note, only
-        callback(song, note_id);
-      }
     })
     that.$navBar.html(JST['navbar']({active: "songs_notes"}));
   },
@@ -61,13 +59,15 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     }
   },
 
-  showNote: function(selectedSong, id){
+  showNote: function(song_id, id){
     var that = this;
-    that._getNote(selectedSong, id, function(){
-      var noteShowView = new RapGenius.Views.NoteShow({
-        model: selectedSong.notes.get(id),
-      });
-      that.$sideBar.html(noteShowView.render().$el);
+    that._getSong(song_id, function(selectedSong){
+      that._getNote(selectedSong, id, function(){
+        var noteShowView = new RapGenius.Views.NoteShow({
+          model: selectedSong.notes.get(id),
+        });
+        that.$sideBar.html(noteShowView.render().$el);
+      })
     })
   },
 
@@ -89,7 +89,8 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
 
   showLyricAndNote: function(song_id, id){
     var that = this;
-    that.showSong(song_id, that.showNote.bind(that), id);
+    that.showSong(song_id);
+    that.showNote(song_id, id);
     that.$navBar.html(JST['navbar']({active: "songs_notes"}));
   },
 

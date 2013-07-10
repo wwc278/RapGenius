@@ -27,7 +27,6 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
   },
 
   newSong: function(){
-    console.log("I know how to use events to handle button click!")
     var that = this;
     var renderedContent = that.newSongTemplate({
 

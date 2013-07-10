@@ -9,7 +9,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(params[:note])
+    @note = current_user.notes.build(params[:note])
     if @note.save
       render :json => @note
     else

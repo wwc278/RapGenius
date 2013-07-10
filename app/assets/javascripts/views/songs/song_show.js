@@ -30,6 +30,7 @@ RapGenius.Views.SongShow = Backbone.View.extend({
   checkSelection: function(e){
     var that = this;
     var selection = window.getSelection();
+
     if (selection.type === "None"){
       return
     }

@@ -33,14 +33,10 @@ RapGenius.Views.NoteNew = Backbone.View.extend({
 
     var attrs = $(e.target.form).serializeJSON();
     that.model.set(attrs);
-
     that.collection.create(that.model, {
       success: function(){
         that.annotate(that.song_id, that.model.id);
-        that.saveNote(that.song_id);
-        Backbone.history.navigate(
-          "songs/" + that.song_id + "/notes/" + that.model.id, {trigger: true}
-          );
+        that.saveNote(that.song_id, that.model.id);
       }
     })
   },
@@ -58,13 +54,26 @@ RapGenius.Views.NoteNew = Backbone.View.extend({
   },
 
   // saves the lyrics with newly created link to song in database
-  saveNote: function(song_id){
+  saveNote: function(song_id, note_id){
     var song = RapGenius.songs.get(song_id);
-    song.save({song: {lyrics: $("#lyrics").html()} },
-      {error: function(){
+    song.save({song: {lyrics: $("#lyrics").html()} }, {
+      success: function(){
+        Backbone.history.navigate("songs/" + song_id + "/notes/" + note_id, 
+          {trigger: true});
+      },
+
+      error: function(){
         console.log("ajax error on annotation save")
       }
     });
+  },
+
+  // replace new note form with created note on successful submit
+  noteFormReplace: function(noteModel){
+    var noteView = new RapGenius.Views.NoteShow({
+      model: noteModel,
+    })
+    this.$noteView.render();
   },
 
 });
