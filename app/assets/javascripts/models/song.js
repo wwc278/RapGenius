@@ -15,14 +15,16 @@ RapGenius.Models.Song = Backbone.Model.extend({
       });
     }
 
-    // if (!this.scholars){
-    //   this.scholars = new RapGenius.Collections.Users({
-    //     song: this,
-    //   })
-    // }
+    if (!this.scholars){
+      this.scholars = new RapGenius.Collections.Users({
+        song: this,
+      })
+    }
 
     this.notes.set(json.notes);
+    this.scholars.set(json.scholars)
     delete json.notes;
+    delete json.scholars;
 
     return json;
   },

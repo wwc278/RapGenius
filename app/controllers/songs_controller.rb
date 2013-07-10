@@ -22,7 +22,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    render :json => @song
+    render :json => @song, :include => [:notes, :scholars]
   end
 
   def update

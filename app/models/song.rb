@@ -5,7 +5,8 @@ class Song < ActiveRecord::Base
   has_many :notes
   has_many :scholars, :through => :notes, :source => :scholar
 
-  def as_json(options = {})
-    super(options.merge(:include => [:notes, :scholars]))
-  end
+  # forgo overriding as_json because it does not apply to all controller actions
+  # def as_json(options = {})
+  #   super(options.merge(:include => [:notes, :scholars]))
+  # end
 end

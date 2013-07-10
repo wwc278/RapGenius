@@ -3,8 +3,6 @@ RapGenius.Views.SongShow = Backbone.View.extend({
   initialize: function(options){
     var that = this;
     that.model = options.model;
-
-    that.model.notes.fetch();
     that.$sideBar = options.$sideBar;
 
   },
