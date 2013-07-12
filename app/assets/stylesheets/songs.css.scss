@@ -2,43 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.navbar .navbar-inner {
-  padding: 0;
-}
-
-.navbar .nav {
-  margin: 0;
-  display: table;
-  width: 100%;
-}
-
-.navbar .nav li {
-  display: table-cell;
-  width: 1%;
-  float: none;
-}
-
-.navbar .nav li a {
-  font-weight: bold;
-  text-align: center;
-  /*border-left: 1px solid rgba(255, 255, 255, .75);*/
-  border-right: 1px solid rgba(0, 0, 0, .1);
-}
-
-.muted.title {
-  float: left;
-}
-
-.form-search {
-  float: right;
-  padding:10px;
-}
-
-.auth {
-  float: right;
-  padding: 10px;
-}
-
 #content {
   float: right;
   width: 55%;
@@ -47,5 +10,40 @@
 #sideBar {
   float: left;
   width: 360px;
-  position: fixed;
 }
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+$myPurple: #7109AA; 
+$myYellow: #FFFF00;
+
+
+/*.song_list {
+  max-width: 200px;
+
+  ul {
+    border: solid $myBlue 3px;
+  }
+
+  li {
+    list-style: none;
+    border-bottom: 1px solid $myBlue;
+
+    a {
+      padding: 2px;
+      text-decoration: none;
+      display: block;
+      background-color: $myPurple;
+      border-left: 10px solid $myRed;
+      &:hover {background-color: lighten($myPurple, 10%);}
+      color: white;
+    }
+  }
+}*/
+
+/*body {
+  background-color: $myRed;
+}*/

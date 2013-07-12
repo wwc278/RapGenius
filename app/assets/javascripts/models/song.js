@@ -22,7 +22,7 @@ RapGenius.Models.Song = Backbone.Model.extend({
     }
 
     this.notes.set(json.notes);
-    this.scholars.set(json.scholars)
+    this.scholars.set(json.scholars);
     delete json.notes;
     delete json.scholars;
 

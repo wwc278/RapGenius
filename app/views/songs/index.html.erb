@@ -1,6 +1,77 @@
-<div class='container'>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#">RapGenius</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
 
-  <div class='masthead'>
+          <!-- <li class="dropdown"> -->
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a> -->
+            <!-- <ul class="dropdown-menu"> -->
+              <!-- <li><a href="#">Action</a></li> -->
+              <!-- <li><a href="#">Another action</a></li> -->
+              <!-- <li><a href="#">Something else here</a></li> -->
+              <!-- <li class="divider"></li> -->
+              <!-- <li class="nav-header">Nav header</li> -->
+              <!-- <li><a href="#">Separated link</a></li> -->
+              <!-- <li><a href="#">One more separated link</a></li> -->
+            <!-- </ul> -->
+          <!-- </li> -->
+        </ul>
+
+        <div class='auth navbar-form pull-right'>
+          <% if user_signed_in? %>
+            <span class='username'>
+              <%= current_user.email %>
+            </span>
+            <%= link_to "Sign Out", 
+            destroy_user_session_url, 
+            :class => 'btn',
+            :method => :delete %>
+          <% else %>
+            <%- if controller_name != 'sessions' %>
+              <%= link_to "Sign In", new_user_session_url, :class => 'btn' %>
+            <% end -%>
+
+            <%- if controller_name != 'registrations' %>
+              <%= link_to "Sign Up", 
+              new_user_registration_url, 
+              :class => 'btn btn-primary' %>
+            <% end %>
+          <% end -%>
+        </div>
+
+                <% if controller_name != 'sessions' && controller_name != 'registrations' %>
+          <form class='form-search navbar-serach navbar-form pull-right'>
+            <div class='input-append'>
+              <input type='text' class='search-query'>
+              <button type="submit" class='btn'>Search</button>
+            </div>
+          </form>
+        <% end %>
+<!--         <form class="navbar-form pull-right">
+          <input class="span2" type="text" placeholder="Email">
+          <input class="span2" type="password" placeholder="Password">
+          <button type="submit" class="btn">Sign in</button>
+        </form> -->
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class='main container'>
+<!--   <div class='masthead'>
 
     <div class='navbar'>
       <div class='navbar-inner'>
@@ -11,11 +82,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <div id='content'></div>
 
-  <div id='sideBar'></div>
-  
+  <div id='side_bar'></div>
+
 </div>

@@ -27,9 +27,9 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     var indexView = new RapGenius.Views.SongsIndex({
       collection: RapGenius.songs,
     });
-
-    that.$navBar.html(JST['navbar']({active: "home"}));
+    // that.$navBar.html(JST['navbar']({active: "home"}));
     that.$rootEl.html(indexView.render().$el);
+    that.$rootEl.addClass("song_list")
     that.$sideBar.html("");
   },
 
