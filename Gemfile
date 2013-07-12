@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'devise'
+gem 'faker'
 
 group :development do 
   gem 'better_errors'
@@ -17,7 +18,6 @@ group :development do
   gem 'guard-livereload'
   gem 'rack-livereload'
   gem 'seed_dump'
-  gem 'faker'
 end
 
 
