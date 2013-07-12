@@ -3,6 +3,7 @@ window.RapGenius = {
   Collections: {},
   Views: {},
   Routers: {},
+
   initialize: function() {
     var $navBar = $(".nav");
     var $rootEl = $('.content');
@@ -17,7 +18,32 @@ window.RapGenius = {
     });
 
     Backbone.history.start();
-  }
+  },
+
+  runJoyRide: function(options){
+    console.log("joyriding")
+    if (!options){
+      var options = {}
+      options.scroll = true;
+    }
+    $('#joyRideTipContent').joyride({
+      scroll: options.scroll,
+      autoStart : true,
+      // postStepCallback : function (index, tip) {
+      //   if (index == 2) {
+      //     $(this).joyride('set_li', false, 1);
+      //   }
+      // },
+      // postRideCallback: function(){
+      //   $('.joyride-modal-bg').remove();
+      // },
+      modal:true,
+      expose: true,
+    });
+    $('body').append('<div class="joyride-modal-bg">');
+    $("body .joyride-modal-bg").css("display", "block");
+
+  },
 };
 
 $(document).ready(function(){
@@ -30,7 +56,6 @@ $(window).scroll(function(){
   if ($sideBar.length === 1){
     if ((!$sideBar.hasClass('fixed')) && 
       (distanceScrolled >= RapGenius.sideBarTravelHeight)){
-      debugger
       var width = $sideBar.css("width");
       $sideBar.addClass('fixed');
       $sideBar.css("width", width);

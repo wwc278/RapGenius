@@ -1,12 +1,16 @@
-<br>
-<h1>Scholars for this song</h1>
+<div class='scholars'>
+  <br>
+  <h1>Scholars for this song</h1>
 
-<ul>
-  <% if (scholars.length === 0){ %>
-    <li>No scholars have annotated this yet, be the first to annotate this song!</li>
-  <% } else { %>
-    <% scholars.each(function(scholar){ %>
-      <li><%= scholar.escape("email") %></li>
-    <% }) %>
-  <% } %>
-</ul>
+  <ul>
+    <% if (scholars.length === 0){ %>
+      <li>
+        No scholars have annotated this yet, be the first to annotate this song!
+      </li>
+    <% } else { %>
+      <% scholars.each(function(scholar){ %>
+        <li><%= scholar.escape("email") %></li>
+      <% }) %>
+    <% } %>
+  </ul>
+</div>

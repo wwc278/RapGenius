@@ -70,10 +70,22 @@ RapGenius.Views.SongShow = Backbone.View.extend({
       range: that.range,
     });
     var fixed = that.$sideBar.find(".fixed");
+    var width = fixed.css("width");
     that.$sideBar.html(newNoteView.render().$el);
-    if (fixed.length > 0){ that.$sideBar.find("div").addClass("fixed")};
+    if (fixed.length > 0){
+      that.$sideBar.find("div").css("width", width);
+      that.$sideBar.find("div").addClass("fixed")
+    };
+
     Backbone.history.navigate("songs/" + that.model.id + "/new_note")
+
+    $("#numero2").attr("id",""); //clear second joyride
+    $("#numero3").attr("id",""); //clear third joyride
+    $(".notenew input[type='submit']").attr("id", "numero4")
+    if (!RapGenius.joyRide4){
+      RapGenius.runJoyRide({scroll: false});
+      RapGenius.joyRide4 = true;
+    }
   },
 
 });
-

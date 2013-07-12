@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'faker'
+gem 'joyride-rails'
 
 group :development do 
   gem 'better_errors'

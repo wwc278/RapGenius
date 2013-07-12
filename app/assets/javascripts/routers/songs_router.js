@@ -21,14 +21,25 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
   index: function(){
     var that = this;
     console.log("index fetch")
-    RapGenius.songs.fetch();
+    RapGenius.songs.fetch({
+      success: function(){
+        that.$rootEl.attr("id", ""); //clear second joyride
+        that.$rootEl.find("div.song-list").attr("id", "numero1");
+        if (!RapGenius.joyRide1){
+          RapGenius.runJoyRide();
+          RapGenius.joyRide1 = true;
+        }
+      }
+    });
 
     var indexView = new RapGenius.Views.SongsIndex({
       collection: RapGenius.songs,
     });
     // that.$navBar.html(JST['navbar']({active: "home"}));
     that.$rootEl.html(indexView.render().$el);
-    that.$sideBar.html("");
+    // that.$rootEl.addClass("so-awesome");
+    that.$sideBar.html("<div>");
+    
   },
 
   showSong: function(song_id, callback, note_id){
@@ -44,6 +55,12 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
       })
       that.$rootEl.html(songView.render().$el);
       that.$rootEl.append(scholarView.render().$el);
+      that.$rootEl.attr("id", "numero2");
+      that.$rootEl.find("div.scholars").attr("id", "numero3");
+      if (!RapGenius.joyRide2){
+        RapGenius.runJoyRide();
+        RapGenius.joyRide2 = true;
+      }
       // accepts a callback to show note from showLyricAndNote
       if (callback){
         callback(song_id, note_id);
@@ -92,8 +109,12 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
           collection: selectedSong.scholars,
         });
         var fixed = that.$sideBar.find(".fixed");
+        var width = fixed.css("width");
         that.$sideBar.html(noteShowView.render().$el);
-        if (fixed.length > 0){that.$sideBar.find("div").addClass("fixed")};
+        if (fixed.length > 0){
+          that.$sideBar.find("div").css("width", width);
+          that.$sideBar.find("div").addClass("fixed")
+        };
       })
     })
   },
@@ -136,6 +157,8 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     this.$rootEl.html(renderedContent);
     this.$sideBar.html("");
   },
+
+
 
 
 

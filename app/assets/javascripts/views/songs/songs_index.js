@@ -10,7 +10,7 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
   events: {
     "click button.new_song": "newSong",
     "click button.cancel"  : "cancelNewSongForm",
-    "click input[type='submit'].new_song" : "submitNewSong",
+    "click .new_song input[type='submit']" : "submitNewSong",
   },
 
   template: JST['songs/index'],
@@ -34,6 +34,10 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
 
     });
     $("div.new_song").html(renderedContent);
+
+    $("#numero1").attr("id", "");
+    $(".new_song input[type='submit']").attr("id", "numero5");
+    RapGenius.runJoyRide();
 
   },
 

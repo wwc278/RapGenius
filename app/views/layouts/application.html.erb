@@ -5,10 +5,16 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!-- /* Attach the Joyride CSS file */ -->
+  <!-- <link rel=" stylesheet" type="text/css" href="joyride-2.1.css"> -->
+
+  <!-- /* jQuery needs to be attached */ -->
+  <!-- // <script src="jquery-1.8.2.min.js"></script> -->
+
+  <!-- /* Then attach the Joyride plugin */ -->
+  <!-- // <script src="jquery.joyride-2.1.js"></script> -->
 </head>
 <body>
-
-  <div class='bg-image-container'></div>
   <% if notice %>
     <p class='notice'><%= notice %></p>
   <% end %>
@@ -16,6 +22,108 @@
   <% if alert %>
     <p class='alert'><%= alert %></p>
   <% end %>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="/">RapGenius</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+          <!-- <li class="dropdown"> -->
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a> -->
+            <!-- <ul class="dropdown-menu"> -->
+              <!-- <li><a href="#">Action</a></li> -->
+              <!-- <li><a href="#">Another action</a></li> -->
+              <!-- <li><a href="#">Something else here</a></li> -->
+              <!-- <li class="divider"></li> -->
+              <!-- <li class="nav-header">Nav header</li> -->
+              <!-- <li><a href="#">Separated link</a></li> -->
+              <!-- <li><a href="#">One more separated link</a></li> -->
+            <!-- </ul> -->
+          <!-- </li> -->
+        </ul>
+
+        <div class='auth navbar-form pull-right'>
+          <% if user_signed_in? %>
+            <span class='username'>
+              <%= current_user.email %>
+            </span>
+            <%= link_to "Sign Out", 
+            destroy_user_session_url, 
+            :class => 'btn',
+            :id => 'no-radius',
+            :method => :delete %>
+          <% else %>
+            <%- if controller_name != 'sessions' %>
+              <%= link_to "Sign In", 
+              new_user_session_url, 
+              :class => 'btn',
+              :id => 'no-radius' %>
+            <% end -%>
+
+            <%- if controller_name != 'registrations' %>
+              <%= link_to "Sign Up", 
+              new_user_registration_url, 
+              :class => 'btn btn-primary',
+              :id => 'no-radius' %>
+            <% end %>
+          <% end -%>
+        </div>
+
+        <% if controller_name != 'sessions' && controller_name != 'registrations' %>
+          <form class='form-search navbar-serach navbar-form pull-right'>
+            <div class='input-append'>
+              <input type='text' class='search-query'>
+              <button type="submit" class='btn'>Search</button>
+            </div>
+          </form>
+        <% end %>
+<!--         <form class="navbar-form pull-right">
+          <input class="span2" type="text" placeholder="Email">
+          <input class="span2" type="password" placeholder="Password">
+          <button type="submit" class="btn">Sign in</button>
+        </form> -->
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+      <!-- Tip Content -->
+    <ol id="joyRideTipContent">
+      <li data-id="numero1" data-text="Next" data-options="tipLocation:right;tipAnimation:fade" >
+        <h2>These are the hot tracks on the streets!</h2>
+        <p>Click on any of them to view their lyrics and annotations. You can also add new songs.</p>
+      </li>
+      <li data-id="numero2" data-button="Next" data-options="tipLocation:right;tipAnimation:fade">
+        <h2>Annotating</h2>
+        <p>Try annotating some lyrics by selecting some text in the lyrics to the left and pressing the "Annotate Selection" button.</p>
+      </li>
+      <li data-id="numero3" data-button="Close" data-options="tipLocation:right;tipAnimation:fade">
+        <h2>Who's a rap genius?</h2>
+        <p>This shows the current list of people who have annotated this song.</p>
+      </li>
+      <li data-id="numero4" data-button="Next" data-options="tipLocation:bottom;tipAnimation:fade">
+        <h2>Sign In or Sign Up</h2>
+        <p>You must be signed in to make annotations. If you don't have an account, what are you waiting for? Sign up!</p>
+      </li>
+      <li data-class="someclass" data-button="Next" data-options="tipLocation:right">
+        <h2>Stop #4.5</h2>
+        <p>It works with classes, and only on the first visible element with that class.</p>
+      </li>
+      <li data-id="numero5" data-button="Close">
+        <h2>Sign In Or Sign Up</h2>
+        <p>You must be signed in to make annotations. If you don't have an account, what are you waiting for? Sign up!</p>
+      </li>
+    </ol>
 
   <%= yield %>
 

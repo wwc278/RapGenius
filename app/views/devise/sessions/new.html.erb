@@ -1,6 +1,4 @@
-
-
-<div class='container'>
+<div class='main container'>
   <%= form_for(resource,
     html: {:class => 'form-horizontal'}, 
     :as => resource_name, 
@@ -41,7 +39,7 @@
         <% end -%>
 
         <div><%= f.submit "Sign in", 
-        :class => 'btn-large btn-primary',
+        :class => 'btn-large',
         :id => 'no-radius' %></div>
 
         <%= render "devise/shared/links" %>
