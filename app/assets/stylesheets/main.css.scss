@@ -1,0 +1,18 @@
+$lightPurple: #AD66D5;
+$myPurple: #7109AA;
+$darkPurple: #48036F;
+$myYellow: #FFFF00;
+
+body {
+  background-color: black;
+  color: white;
+  background-image: url('background1.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.mybtn {
+  background-image: linear-gradient(to bottom, $myPurple, $lightPurple);
+  border: 1px solid $myYellow;
+  &:hover {background-image: linear-gradient(to bottom, $darkPurple, $myPurple)}
+}

@@ -2,47 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#content {
-  float: right;
-  width: 55%;
+$lightPurple: #ad66d5;
+$myPurple: #7109AA; 
+$myYellow: #FFFF00;
+
+.content {
+/*  border: 5px solid yellow;
+  background: $lightPurple;*/
+  display: inline-block;
+  width: 54%;
 }
 
-#sideBar {
-  float: left;
-  width: 360px;
+.sidebar {
+  float: right;
+  position: relative;
+  width: 44%;
 }
 
 .fixed {
   position: fixed;
-  top: 0;
+  top: 40px;
+  width: inherit;
+  max-width: 515px;
 }
 
-$myPurple: #7109AA; 
-$myYellow: #FFFF00;
 
 
-/*.song_list {
+.song-list {
   max-width: 200px;
 
   ul {
-    border: solid $myBlue 3px;
+    margin-left: 0;
   }
 
   li {
     list-style: none;
-    border-bottom: 1px solid $myBlue;
+    border-bottom: 1px solid $myYellow;
 
     a {
       padding: 2px;
       text-decoration: none;
       display: block;
       background-color: $myPurple;
-      border-left: 10px solid $myRed;
+      border-left: 10px solid $myYellow;
       &:hover {background-color: lighten($myPurple, 10%);}
       color: white;
     }
   }
-}*/
+}
 
 /*body {
   background-color: $myRed;

@@ -1,12 +1,14 @@
-Lyric snippet:
-<pre>
-  <%= note.escape("snippet") %>
-</pre>
-<br>
+<div class='noteshow'>
+  <h1>Lyric snippet:</h1>
+  <pre>
+    <%= note.escape("snippet") %>
+  </pre>
+  <br>
 
-Genius Explanation:
-<p><%= note.escape("annotated_text") %></p>
-<br>
+  Genius Explanation:
+  <p><%= note.escape("annotated_text") %></p>
+  <br>
 
-Author:
-<p><%= scholars.get(note.escape("scholar_id")).escape("email") %></p>
+  Author:
+  <p><%= scholars.get(note.escape("scholar_id")).escape("email") %></p>
+</div>

@@ -20,16 +20,14 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
 
   index: function(){
     var that = this;
-    if (RapGenius.songs.length === 0){
-      console.log("index fetch")
-      RapGenius.songs.fetch();
-    }
+    console.log("index fetch")
+    RapGenius.songs.fetch();
+
     var indexView = new RapGenius.Views.SongsIndex({
       collection: RapGenius.songs,
     });
     // that.$navBar.html(JST['navbar']({active: "home"}));
     that.$rootEl.html(indexView.render().$el);
-    that.$rootEl.addClass("song_list")
     that.$sideBar.html("");
   },
 
@@ -51,10 +49,6 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
         callback(song_id, note_id);
       }
     })
-
-
-
-    that.$navBar.html(JST['navbar']({active: "songs_notes"}));
   },
 
   _getSong: function(id, callback){
@@ -123,7 +117,6 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     console.log("router lyric and note")
     var that = this;
     that.showSong(song_id, that.showNote.bind(that), id);
-    that.$navBar.html(JST['navbar']({active: "songs_notes"}));
   },
 
   about: function(){
@@ -131,7 +124,6 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     var templateFn = JST['about'];
     var renderedContent = templateFn();
 
-    this.$navBar.html(JST['navbar']({active: "about"}));
     this.$rootEl.html(renderedContent);
     this.$sideBar.html("");
 
@@ -139,10 +131,8 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
 
   contact: function(){
     var renderedContent = JST['contact']
-    this.$navBar.html(JST['navbar']({active: "contact"}));
     this.$rootEl.html(renderedContent);
     this.$sideBar.html("");
-
   },
 
 });

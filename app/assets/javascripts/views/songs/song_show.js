@@ -69,7 +69,6 @@ RapGenius.Views.SongShow = Backbone.View.extend({
       song_id: that.model.id,
       range: that.range,
     });
-
     that.$sideBar.html(newNoteView.render().$el);
     Backbone.history.navigate("songs/" + that.model.id + "/new_note")
   },

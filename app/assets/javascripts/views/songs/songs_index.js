@@ -5,6 +5,8 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
     that.listenTo(that.collection, 'all', that.render);
   },
 
+  className: 'song-list',
+
   events: {
     "click button.new_song": "newSong",
     "click button.cancel"  : "cancelNewSongForm",
@@ -37,7 +39,7 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
 
   cancelNewSongForm: function(e){
     e.preventDefault();
-    $('div.new_song').html("<button class='new_song'>Add New Song</button>");
+    $('div.new_song').html("<button class='new_song mybtn'>Add New Song</button>");
   },
 
   submitNewSong: function(e){

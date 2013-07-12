@@ -1,4 +1,5 @@
 RapGenius.Views.NoteNew = Backbone.View.extend({
+  className: "notenew",
 
   events: {
     'click input[type="submit"]': "submit",

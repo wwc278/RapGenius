@@ -5,9 +5,9 @@ window.RapGenius = {
   Routers: {},
   initialize: function() {
     var $navBar = $(".nav");
-    var $rootEl = $('#content');
-    var $sideBar = $('#side_bar');
-    RapGenius.sideBarTravelHeight = $sideBar.offset().top;
+    var $rootEl = $('.content');
+    var $sideBar = $('.sidebar');
+    RapGenius.sideBarTravelHeight = 10;
     RapGenius.songs = new RapGenius.Collections.Songs();
 
     new RapGenius.Routers.Songs({
@@ -25,7 +25,7 @@ $(document).ready(function(){
 });
 
 $(window).scroll(function(){
-  var $sideBar = $("#side_bar");
+  var $sideBar = $(".sidebar div");
   var distanceScrolled = $('body').scrollTop();
   if ($sideBar.length === 1){
     if ((!$sideBar.hasClass('fixed')) && 

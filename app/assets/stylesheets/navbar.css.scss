@@ -17,8 +17,24 @@
   }
 }
 
-body div.main {
-  .container {
-      padding-top: 51px;
+body div.main.container {
+  padding-top: 50px;
+}
+
+@media (max-width: 979px) {
+  body div.main.container {
+    padding-top: 10px;
   }
+}
+
+$lightPurple: #ad66d5;
+$myPurple: #7109AA; 
+$myYellow: #FFFF00;
+
+.navbar-inverse .brand{
+  color: black;
+}
+
+.navbar-inverse .navbar-inner {
+  background-image: linear-gradient(to bottom, $lightPurple, $myPurple)
 }
