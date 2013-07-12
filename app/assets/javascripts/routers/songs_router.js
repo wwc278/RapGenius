@@ -91,7 +91,9 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
           model: selectedSong.notes.get(id),
           collection: selectedSong.scholars,
         });
+        var fixed = that.$sideBar.find(".fixed");
         that.$sideBar.html(noteShowView.render().$el);
+        if (fixed){that.$sideBar.find("div").addClass("fixed")};
       })
     })
   },
@@ -134,5 +136,7 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     this.$rootEl.html(renderedContent);
     this.$sideBar.html("");
   },
+
+
 
 });

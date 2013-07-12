@@ -13,6 +13,6 @@ body {
 
 .mybtn {
   background-image: linear-gradient(to bottom, $myPurple, $lightPurple);
-  border: 1px solid $myYellow;
+  border-left: 10px solid $myYellow;
   &:hover {background-image: linear-gradient(to bottom, $darkPurple, $myPurple)}
 }

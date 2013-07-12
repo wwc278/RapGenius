@@ -2,8 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$lightPurple: #ad66d5;
-$myPurple: #7109AA; 
+$lightPurple: #AD66D5;
+$myPurple: #7109AA;
+$darkPurple: #48036F;
 $myYellow: #FFFF00;
 
 .content {
@@ -37,15 +38,17 @@ $myYellow: #FFFF00;
 
   li {
     list-style: none;
-    border-bottom: 1px solid $myYellow;
+    border-bottom: 3px solid $darkPurple;
 
     a {
-      padding: 2px;
+      padding: 4px;
       text-decoration: none;
       display: block;
       background-color: $myPurple;
+      /*background-image: linear-gradient(to bottom, $myPurple, $lightPurple);*/
       border-left: 10px solid $myYellow;
-      &:hover {background-color: lighten($myPurple, 10%);}
+      /*&:hover {background-color: lighten($myPurple, 10%)};*/
+      &:hover {background-image: linear-gradient(to bottom, $darkPurple, $myPurple)};
       color: white;
     }
   }
