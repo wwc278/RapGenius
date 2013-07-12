@@ -30,10 +30,14 @@ $(window).scroll(function(){
   if ($sideBar.length === 1){
     if ((!$sideBar.hasClass('fixed')) && 
       (distanceScrolled >= RapGenius.sideBarTravelHeight)){
+      debugger
+      var width = $sideBar.css("width");
       $sideBar.addClass('fixed');
+      $sideBar.css("width", width);
     } else if ($sideBar.hasClass('fixed') && 
       (distanceScrolled < RapGenius.sideBarTravelHeight)){   
       $sideBar.removeClass('fixed');
+      $sideBar.css("width", "");
     }
   }
 })

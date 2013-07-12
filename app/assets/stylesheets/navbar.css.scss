@@ -23,7 +23,11 @@ body div.main.container {
 
 @media (max-width: 979px) {
   body div.main.container {
-    padding-top: 10px;
+    padding-top: 0px;
+  }
+
+  .navbar-fixed-top {
+    margin-bottom: 0px;
   }
 }
 
