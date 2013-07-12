@@ -35,16 +35,21 @@
             <%= link_to "Sign Out", 
             destroy_user_session_url, 
             :class => 'btn',
+            :id => 'no-radius',
             :method => :delete %>
           <% else %>
             <%- if controller_name != 'sessions' %>
-              <%= link_to "Sign In", new_user_session_url, :class => 'btn' %>
+              <%= link_to "Sign In", 
+              new_user_session_url, 
+              :class => 'btn',
+              :id => 'no-radius' %>
             <% end -%>
 
             <%- if controller_name != 'registrations' %>
               <%= link_to "Sign Up", 
               new_user_registration_url, 
-              :class => 'btn btn-primary' %>
+              :class => 'btn btn-primary',
+              :id => 'no-radius' %>
             <% end %>
           <% end -%>
         </div>
@@ -72,5 +77,7 @@
 
 <div class='main container'>
   <div class='content'></div>
-  <div class='sidebar'></div>
+  <div class='sidebar'>
+    <div class='dummy-div'></div>
+  </div>
 </div>

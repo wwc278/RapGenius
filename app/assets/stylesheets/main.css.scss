@@ -13,6 +13,23 @@ body {
 
 .mybtn {
   background-image: linear-gradient(to bottom, $myPurple, $lightPurple);
-  border-left: 10px solid $myYellow;
+  border: none;
+  font-size: 18px;
+  /*border-left: 10px solid $myYellow;*/
+  border-bottom: 3px solid $darkPurple;
   &:hover {background-image: linear-gradient(to bottom, $darkPurple, $myPurple)}
 }
+
+.mybtn-primary {
+  background-color: $myYellow;
+  border: none;
+  font-size: 18px;
+  /*border-left: 10px solid $myYellow;*/
+  border: 3px solid $darkPurple;
+  &:hover {background-image: linear-gradient(to bottom, $myPurple, $lightPurple)}
+}
+
+#no-radius{
+  margin-bottom: 5px;
+  border-radius: 0px;
+  }

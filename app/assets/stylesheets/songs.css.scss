@@ -43,17 +43,32 @@ $myYellow: #FFFF00;
     a {
       padding: 4px;
       text-decoration: none;
+      font-size: 18px;
       display: block;
-      background-color: $myPurple;
+      background-color: $lightPurple;
       /*background-image: linear-gradient(to bottom, $myPurple, $lightPurple);*/
       border-left: 10px solid $myYellow;
       /*&:hover {background-color: lighten($myPurple, 10%)};*/
       &:hover {background-image: linear-gradient(to bottom, $darkPurple, $myPurple)};
-      color: white;
+      color: black;
     }
   }
 }
 
-/*body {
-  background-color: $myRed;
-}*/
+pre.mypre {
+  border-radius: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  /*background-image: linear-gradient(to bottom, $myPurple, $lightPurple);*/
+  background-color: $lightPurple;
+  color: black;
+  border: 4px solid $myYellow;
+  &#lyrics::selection{
+    background: $myYellow;
+  }
+
+  a {
+    background-color: $myYellow;
+    color: $darkPurple;
+  }
+}

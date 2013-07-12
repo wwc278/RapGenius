@@ -40,14 +40,13 @@
           </div>
         <% end -%>
 
-        <div><%= f.submit "Sign in", :class => 'btn-large btn-primary' %></div>
-      </div>
-    </div>
+        <div><%= f.submit "Sign in", 
+        :class => 'btn-large btn-primary',
+        :id => 'no-radius' %></div>
 
-    <div class='control-group'>
-      <div class='controls'>
         <%= render "devise/shared/links" %>
       </div>
     </div>
+
   <% end %>
 </div>
