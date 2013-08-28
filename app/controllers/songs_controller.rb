@@ -34,4 +34,9 @@ class SongsController < ApplicationController
     end
 
   end
+
+  def search
+    @songs = Song.search_by_title(params[:title])
+    render :json => @songs
+  end
 end

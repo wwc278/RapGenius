@@ -20,36 +20,39 @@ window.RapGenius = {
     Backbone.history.start();
   },
 
-  runJoyRide: function(options){
-    console.log("joyriding")
-    if (!options){
-      var options = {}
-      options.scroll = true;
-    }
-    $('#joyRideTipContent').joyride({
-      scroll: options.scroll,
-      autoStart : true,
-      // postStepCallback : function (index, tip) {
-      //   if (index == 2) {
-      //     $(this).joyride('set_li', false, 1);
-      //   }
-      // },
-      // postRideCallback: function(){
-      //   $('.joyride-modal-bg').remove();
-      // },
-      modal:true,
-      expose: true,
-    });
-    $('body').append('<div class="joyride-modal-bg">');
-    $("body .joyride-modal-bg").css("display", "block");
+  // uncomment to enable JoyRide feature, kind of gets annoying though, so try to enable it only for first time visitors, or have an option to enable it
+  
+  // runJoyRide: function(options){
+  //   console.log("joyriding")
+  //   if (!options){
+  //     var options = {}
+  //     options.scroll = true;
+  //   }
+  //   $('#joyRideTipContent').joyride({
+  //     scroll: options.scroll,
+  //     autoStart : true,
+  //     // postStepCallback : function (index, tip) {
+  //     //   if (index == 2) {
+  //     //     $(this).joyride('set_li', false, 1);
+  //     //   }
+  //     // },
+  //     // postRideCallback: function(){
+  //     //   $('.joyride-modal-bg').remove();
+  //     // },
+  //     modal:true,
+  //     expose: true,
+  //   });
+  //   $('body').append('<div class="joyride-modal-bg">');
+  //   $("body .joyride-modal-bg").css("display", "block");
 
-  },
+  // },
 };
 
 $(document).ready(function(){
   RapGenius.initialize();
 });
 
+// fixes annotations when scrolling so annotations always show
 $(window).scroll(function(){
   var $sideBar = $(".sidebar div");
   var distanceScrolled = $('body').scrollTop();

@@ -1,4 +1,6 @@
 class Song < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_title, :against => :title
   attr_accessible :lyrics, :title, :artist, :album_id
 
   belongs_to :album

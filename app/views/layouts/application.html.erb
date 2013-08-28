@@ -80,13 +80,23 @@
         </div>
 
         <% if controller_name != 'sessions' && controller_name != 'registrations' %>
-          <form class='form-search navbar-serach navbar-form pull-right'>
+          <form class='form-search pull-right navbar-form'  
+            action="<%= songs_search_url %>" 
+            method='get'>
+
             <div class='input-append'>
-              <input type='text' class='search-query'>
-              <button type="submit" class='btn'>Search</button>
+              <input type='text' 
+              class='span2' 
+              id='appendedInputButtons'
+              name='title'
+              >
+              <button type="submit" class='btn'id='no-radius' style='height: 24px;'>
+                <i class='icon-search'></i>
+              </button>
             </div>
           </form>
         <% end %>
+
 <!--         <form class="navbar-form pull-right">
           <input class="span2" type="text" placeholder="Email">
           <input class="span2" type="password" placeholder="Password">

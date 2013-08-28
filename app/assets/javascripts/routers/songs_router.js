@@ -25,10 +25,11 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
       success: function(){
         that.$rootEl.attr("id", ""); //clear second joyride
         that.$rootEl.find("div.song-list").attr("id", "numero1");
-        if (!RapGenius.joyRide1){
-          RapGenius.runJoyRide();
-          RapGenius.joyRide1 = true;
-        }
+        
+        // if (!RapGenius.joyRide1){
+        //   RapGenius.runJoyRide();
+        //   RapGenius.joyRide1 = true;
+        // }
       }
     });
 
@@ -57,10 +58,12 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
       that.$rootEl.append(scholarView.render().$el);
       that.$rootEl.attr("id", "numero2");
       that.$rootEl.find("div.scholars").attr("id", "numero3");
-      if (!RapGenius.joyRide2){
-        RapGenius.runJoyRide();
-        RapGenius.joyRide2 = true;
-      }
+
+      // if (!RapGenius.joyRide2){
+      //   RapGenius.runJoyRide();
+      //   RapGenius.joyRide2 = true;
+      // }
+
       // accepts a callback to show note from showLyricAndNote
       if (callback){
         callback(song_id, note_id);

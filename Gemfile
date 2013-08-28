@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'faker'
 gem 'joyride-rails'
+gem 'pg_search'
 
 group :development do 
   gem 'better_errors'
