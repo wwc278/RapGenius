@@ -2,14 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$lightPurple: #AD66D5;
-$myPurple: #7109AA;
-$darkPurple: #48036F;
-$myYellow: #FFFF00;
+$myGray: #979797;
+$myBlue: #0088cc;
 
 .content {
-/*  border: 5px solid yellow;
-  background: $lightPurple;*/
   display: inline-block;
   width: 54%;
 }
@@ -32,24 +28,22 @@ $myYellow: #FFFF00;
 .song-list {
   max-width: 200px;
   width: 200px;
+
   ul {
     margin-left: 0;
   }
 
   li {
+    margin: 4px;
     list-style: none;
-    border-bottom: 3px solid $darkPurple;
+    border: 4px solid #0088cc;
 
     a {
       padding: 4px;
       text-decoration: none;
       font-size: 18px;
       display: block;
-      background-color: $lightPurple;
-      /*background-image: linear-gradient(to bottom, $myPurple, $lightPurple);*/
-      border-left: 10px solid $myYellow;
-      /*&:hover {background-color: lighten($myPurple, 10%)};*/
-      &:hover {background-image: linear-gradient(to bottom, $darkPurple, $myPurple)};
+      &:hover {background-color: #979797;};
       color: black;
     }
   }
@@ -59,21 +53,19 @@ pre.mypre {
   border-radius: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  /*background-image: linear-gradient(to bottom, $myPurple, $lightPurple);*/
-  background-color: $lightPurple;
+  background: transparent;
   color: black;
-  border: 4px solid $myYellow;
+  border: 4px solid #0088cc;
   &#lyrics::selection{
-    background: $myYellow;
+    background: $myGray;
   }
 
   a {
-    background-color: $myYellow;
-    color: $darkPurple;
+    color: $myBlue;
     text-decoration: none;
     &:hover{
       color: white;
-      background-color: $darkPurple;
+      background-color: $myGray;
     }
   }
 }

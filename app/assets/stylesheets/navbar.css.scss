@@ -1,3 +1,7 @@
+
+$myGray: #979797;
+$myBlue: #0088cc;
+
 .auth .username {
   display: inline-block;
   padding-top: 10px;
@@ -31,14 +35,11 @@ body div.main.container {
   }
 }
 
-$lightPurple: #ad66d5;
-$myPurple: #7109AA; 
-$myYellow: #FFFF00;
-
 .navbar-inverse .brand{
-  color: black;
+  color: white;
 }
 
 .navbar-inverse .navbar-inner {
-  background-image: linear-gradient(to bottom, $lightPurple, $myPurple)
+  background-color: $myBlue;
+  background-image: none;
 }

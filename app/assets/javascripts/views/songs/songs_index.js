@@ -10,7 +10,6 @@ RapGenius.Views.SongsIndex = Backbone.View.extend({
     //custom event listener because the search form is present before the view is rendered (provided from the server application.html view)
     that.$searchForm.click(function(e){
       var title = $(e.currentTarget.form).serializeJSON().title;
-      console.log(title);
       e.preventDefault();
       RapGenius.songs.fetch({data: {title: title}})
 

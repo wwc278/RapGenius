@@ -5,10 +5,11 @@
   </pre>
   <br>
 
-  Genius Explanation:
-  <p><%= note.escape("annotated_text") %></p>
-  <br>
+  <h1>Genius Explanation:</h1>
+  <pre class='mypre'>
+    <%= note.escape("annotated_text") %>
+  </pre>
 
   Author:
-  <p><%= scholars.get(note.escape("scholar_id")).escape("email") %></p>
+  <%= scholars.get(note.escape("scholar_id")).escape("email") %>
 </div>

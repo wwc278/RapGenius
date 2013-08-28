@@ -2,36 +2,31 @@ $lightPurple: #AD66D5;
 $myPurple: #7109AA;
 $darkPurple: #48036F;
 $myYellow: #FFFF00;
+$myGray: #979797;
+$myBlue: #0088cc;
+
 
 body {
-  background-color: black;
-  color: white;
-  background-image: url('background1.jpg');
+  background-image: url('background.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
 .mybtn {
-  background-image: linear-gradient(to bottom, $myPurple, $lightPurple);
-  border: none;
+  background-color: transparent;
   font-size: 18px;
-  /*border-left: 10px solid $myYellow;*/
-  border-bottom: 3px solid $darkPurple;
+  border: 4px solid $myBlue;
   &:hover {
-    background-image: linear-gradient(to bottom, $lightPurple, $myPurple);
-    border-top: 3px solid $myYellow;
+    background-color: $myGray;
   }
 }
 
 .mybtn-primary {
-  background-color: $myYellow;
-  border: none;
+  background-color: $myGray;
   font-size: 18px;
   /*border-left: 10px solid $myYellow;*/
-  border: 3px solid $darkPurple;
+  border: 3px solid $myBlue;
   &:hover {
-    background-image: linear-gradient(to bottom, $myPurple, $lightPurple);
-    border: 3px solid $myYellow;
     color: white;
   }
 }
