@@ -8,6 +8,7 @@ window.RapGenius = {
     var $navBar = $(".nav");
     var $rootEl = $('.content');
     var $sideBar = $('.sidebar');
+    var $searchForm = $('button.search');
     RapGenius.sideBarTravelHeight = 10;
     RapGenius.songs = new RapGenius.Collections.Songs();
 
@@ -15,13 +16,14 @@ window.RapGenius = {
       "$rootEl": $rootEl,
       "$sideBar": $sideBar,
       "$navBar" : $navBar,
+      "$searchForm" : $searchForm,
     });
 
     Backbone.history.start();
   },
 
   // uncomment to enable JoyRide feature, kind of gets annoying though, so try to enable it only for first time visitors, or have an option to enable it
-  
+
   // runJoyRide: function(options){
   //   console.log("joyriding")
   //   if (!options){

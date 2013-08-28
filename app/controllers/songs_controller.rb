@@ -4,7 +4,11 @@ class SongsController < ApplicationController
   respond_to :html, :only => :index
 
   def index
-    @songs = Song.all
+    if params[:title] && !params[:title].empty?
+      @songs = Song.search_by_title(params[:title])
+    else
+      @songs = Song.all
+    end
     respond_to do |f|
       f.html
       f.json {render :json => @songs}
@@ -35,8 +39,4 @@ class SongsController < ApplicationController
 
   end
 
-  def search
-    @songs = Song.search_by_title(params[:title])
-    render :json => @songs
-  end
 end

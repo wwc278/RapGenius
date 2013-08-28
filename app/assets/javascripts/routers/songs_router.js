@@ -5,16 +5,17 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.$sideBar = options.$sideBar;
     this.$navBar = options.$navBar;
+    this.$searchForm = options.$searchForm;
   },
 
   routes: {
-    ""              : "index",
-    "about"         : "about",
-    "contact"       : "contact",
-    "songs_notes"   : "index",
+    ""                             : "index",
+    "about"                        : "about",
+    "contact"                      : "contact",
+    "songs/search/:title"          : "search",
     "songs/:song_id/notes/:id"     : "showLyricAndNote",
-    "songs/:id"     : "showSong",
-    "songs/:id/new_note" : "showSong",
+    "songs/:id"                    : "showSong",
+    "songs/:id/new_note"           : "showSong",
     "notes/:id"                    : "showNote",
   },
 
@@ -25,7 +26,7 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
       success: function(){
         that.$rootEl.attr("id", ""); //clear second joyride
         that.$rootEl.find("div.song-list").attr("id", "numero1");
-        
+
         // if (!RapGenius.joyRide1){
         //   RapGenius.runJoyRide();
         //   RapGenius.joyRide1 = true;
@@ -35,12 +36,20 @@ RapGenius.Routers.Songs = Backbone.Router.extend({
 
     var indexView = new RapGenius.Views.SongsIndex({
       collection: RapGenius.songs,
+      $searchForm: that.$searchForm,
     });
-    // that.$navBar.html(JST['navbar']({active: "home"}));
+
     that.$rootEl.html(indexView.render().$el);
-    // that.$rootEl.addClass("so-awesome");
     that.$sideBar.html("<div>");
     
+  },
+
+  search: function(e){
+    console.log(e)
+    e.preventDefault();
+    $.ajax({
+      url: "#/songs/search/"
+    })
   },
 
   showSong: function(song_id, callback, note_id){

@@ -1,6 +1,5 @@
 RapGenius::Application.routes.draw do
   root :to => "songs#index"
-  get 'songs/search', to: 'songs#search'
   resources :songs do
     resources :notes
   end

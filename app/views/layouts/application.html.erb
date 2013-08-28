@@ -80,9 +80,7 @@
         </div>
 
         <% if controller_name != 'sessions' && controller_name != 'registrations' %>
-          <form class='form-search pull-right navbar-form'  
-            action="<%= songs_search_url %>" 
-            method='get'>
+          <form class='form-search pull-right navbar-form'>
 
             <div class='input-append'>
               <input type='text' 
@@ -90,7 +88,7 @@
               id='appendedInputButtons'
               name='title'
               >
-              <button type="submit" class='btn'id='no-radius' style='height: 24px;'>
+              <button type="submit" class='search btn'id='no-radius' style='height: 24px;'>
                 <i class='icon-search'></i>
               </button>
             </div>
